@@ -4,21 +4,29 @@ import httpx
 
 app = FastAPI(title="Symbol Data API")
 
-# 🔐 Only allow your frontend domain
-ALLOWED_ORIGINS = [
-    # "https://yourfrontend.com",          Production domain
-    # "https://www.yourfrontend.com",      If applicable
-    "http://localhost:5500"              # Only if needed for development
-]
+# # 🔐 Only allow your frontend domain
+# ALLOWED_ORIGINS = [
+#     # "https://yourfrontend.com",          Production domain
+#     # "https://www.yourfrontend.com",      If applicable
+#     "http://localhost:5500"              # Only if needed for development
+# ]
 
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=ALLOWED_ORIGINS,
+#     allow_credentials=True,
+#     allow_methods=["GET"],      # Only allow required methods
+#     allow_headers=["Content-Type", "Authorization"],
+# )
+
+# Allow frontend requests (adjust for production)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS,
+    allow_origins=["*"],  # Change to your frontend domain in production
     allow_credentials=True,
-    allow_methods=["GET"],      # Only allow required methods
-    allow_headers=["Content-Type", "Authorization"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
-
 
 # Base Google Script URL
 BASE_URL = "https://script.google.com/macros/s/AKfycbytdROXOtfIeISL0NFbH6obQJX_Hugvn6nPOkpjQdJbdzK1SJjXuDK5Q6nj2lrFeX_9/exec"
