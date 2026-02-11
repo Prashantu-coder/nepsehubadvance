@@ -4,25 +4,10 @@ import httpx
 
 app = FastAPI(title="Symbol Data API")
 
-# # 🔐 Only allow your frontend domain
-# ALLOWED_ORIGINS = [
-#     # "https://yourfrontend.com",          Production domain
-#     # "https://www.yourfrontend.com",      If applicable
-#     "http://localhost:5500"              # Only if needed for development
-# ]
-
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=ALLOWED_ORIGINS,
-#     allow_credentials=True,
-#     allow_methods=["GET"],      # Only allow required methods
-#     allow_headers=["Content-Type", "Authorization"],
-# )
-
-# Allow frontend requests (adjust for production)
+# Enable CORS for all origins in development
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change to your frontend domain in production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
