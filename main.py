@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException, Query, Header
 from fastapi.middleware.cors import CORSMiddleware
+import httpx
 
 app = FastAPI(title="Symbol Data API")
 
