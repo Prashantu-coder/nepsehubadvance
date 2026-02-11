@@ -14,7 +14,7 @@ app.add_middleware(
 )
 
 # Base Google Script URL
-BASE_URL = "https://script.google.com/macros/s/AKfycbytdROXOtfIeISL0NFbH6obQJX_Hugvn6nPOkpjQdJbdzK1SJjXuDK5Q6nj2lrFeX_9/exec"
+BASE_URL = "https://script.google.com/macros/s/AKfycbxteVvHon6igrKGV7KCyUO4m09tz9Q1FEG5nDv924zUPP2LARxmkQaX30yTPJrrFwItlg/exec"
 
 
 @app.get("/api/symbol-data")
