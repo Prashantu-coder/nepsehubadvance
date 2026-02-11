@@ -28,7 +28,7 @@ async def get_symbol_data(symbol: str = Query(..., description="Company symbol")
 
     try:
         async with httpx.AsyncClient(timeout=15.0) as client:
-            response = await client.get(BASE_URL, params={"symbol": symbol})
+            response = await client.get(BASE_URL, params={"symbol": symbol}, follow_redirects=True)
 
         if response.status_code != 200:
             raise HTTPException(
